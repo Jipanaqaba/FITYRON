@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('ejercicios',function(Blueprint $table){
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->enum('dificultad', ['principiante', 'intermedio', 'avanzado']);
             $table->string('gifUrl');
             $table->string('imgUrl');
-            $table->string('videofUrl')->nullable();
+            $table->string('videoUrl')->nullable();
             $table->foreignId('parte_cuerpo_id')->constrained('partes_cuerpo');
             $table->foreignId('musculo_objetivo_id')->constrained('musculo_objetivo');
             $table->foreignId('equipo_id')->constrained('equipamiento');

@@ -2,47 +2,40 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Concerns\HasAttributes;
+use App\Models\RutinaEjercicio;
+use App\Models\Seguimiento;
+use App\Models\HistorialChatbot;
 
-class User extends Authenticatable
-{
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+/**
+ * @mixin \Eloquent
+ */
+class User extends Authenticatable {
+    use HasFactory, Notifiable, HasAttributes;
+    
+    protected $table = 'usuarios';
+        
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nombre', 'email','password','edad', 'genero', 'objetivo', 'peso', 'altura', 
+        'experiencia', 'informacion_completa'
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password',       
+        'remember_token',  
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+         
+    public function rutinas() {
+        return $this->hasMany(RutinaEjercicio::class);
+    }
+    
+    public function seguimientos() {
+        return $this->hasMany(Seguimiento::class);
+    }
+    
+    public function historialChatbot() {
+        return $this->hasMany(HistorialChatbot::class);
     }
 }
