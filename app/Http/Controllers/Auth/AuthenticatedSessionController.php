@@ -28,7 +28,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return $request->user()->informacion_completa 
+        ? redirect()->route('home')
+        : redirect()->route('encuesta');
     }
 
     /**

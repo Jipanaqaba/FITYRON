@@ -27,24 +27,42 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'nombre' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+    
+        // Crear usuario con datos básicos
         $user = User::create([
-            'name' => $request->name,
+            'nombre' => $request->nombre,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'informacion_completa' => false, // Por defecto, no ha completado la encuesta
         ]);
-
+    
+        // Si hay datos de encuesta como invitado, actualizar y marcar como completo
+        if(session()->has('encuesta_guest')) {
+            $datosGuest = session('encuesta_guest');
+            $user->update([
+                'edad' => $datosGuest['edad'],
+                'genero' => $datosGuest['genero'],
+                'objetivo' => $datosGuest['objetivo'],
+                'peso' => $datosGuest['peso'],
+                'altura' => $datosGuest['altura'],
+                'experiencia' => $datosGuest['experiencia'],
+                'informacion_completa' => true // Marcar como completo
+            ]);
+            session()->forget('encuesta_guest');
+        }
+    
         event(new Registered($user));
-
         Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+    
+        // Redirigir según si completó la encuesta
+        return $user->informacion_completa 
+            ? redirect()->route('home') // Si tenía datos de invitado
+            : redirect()->route('encuesta'); // Si es registro normal
     }
 }

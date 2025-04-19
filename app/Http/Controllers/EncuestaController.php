@@ -11,13 +11,37 @@ class EncuestaController extends Controller
    
     public function show()
     {
-        // Si el usuario está autenticado, guardamos los datos en la sesión
-        if (Auth::check()) {
-            session(['encuesta_incompleta' => true]);
-        }
-
-        return view('encuesta');
+          // Si el usuario está autenticado, redirigir según su estado
+    if (Auth::check()) {
+        return Auth::user()->informacion_completa 
+            ? redirect()->route('home') 
+            : view('encuesta');
     }
+
+    // Si es invitado, mostrar encuesta con datos de sesión (si existen)
+    return view('encuesta', [
+        'datosTemporales' => session('encuesta_guest')
+    ]);
+    }
+
+    public function storeGuest(Request $request) {
+        // Validar datos del invitado
+        $request->validate([
+            'nombre' => 'required|string',
+            'edad' => 'required|integer',
+            'genero' => 'required|in:masculino,femenino',
+            'objetivo' => 'required|in:perder grasa,ganar músculo,mantenerme en forma',
+            'peso' => 'required|numeric',
+            'altura' => 'required|numeric',
+            'experiencia' => 'required|in:principiante,intermedio,avanzado'
+        ]);
+    
+        // Guardar en sesión (funcionará con database driver)
+        session()->put('encuesta_guest', $request->except('_token'));
+    
+        return redirect()->route('register')->with('info', 'Regístrate para guardar tu progreso');
+    }
+
 
     // Guardar los datos de la encuesta
     public function store(Request $request)
@@ -30,16 +54,13 @@ class EncuestaController extends Controller
             'peso' => 'required|numeric',
             'altura' => 'required|numeric',
             'experiencia' => 'required|in:principiante,intermedio,avanzado',
-            'password' => 'required|min:8', 
-            'email' => 'required|email|unique:usuarios'
         ]);
     
-        if (Auth::check()) {
+      
+    /** @var \App\Models\User $user */
             $user = Auth::user();
             $user->update([
                 'nombre' => $request->nombre,
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
                 'edad' => $request->edad,
                 'genero' => $request->genero,
                 'objetivo' => $request->objetivo,
@@ -48,9 +69,6 @@ class EncuestaController extends Controller
                 'experiencia' => $request->experiencia,
                 'informacion_completa' => true
             ]);
-    
-            session()->forget('encuesta_incompleta');
-        }
     
         return redirect()->route('home');
     }

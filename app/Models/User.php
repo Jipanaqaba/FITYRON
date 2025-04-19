@@ -9,18 +9,21 @@ use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use App\Models\RutinaEjercicio;
 use App\Models\Seguimiento;
 use App\Models\HistorialChatbot;
+//use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 /**
  * @mixin \Eloquent
  */
-class User extends Authenticatable {
+//Luego hago verificacion de email para las pruebas finales 
+//implements MustVerifyEmail
+class User extends Authenticatable  {
     use HasFactory, Notifiable, HasAttributes;
     
     protected $table = 'usuarios';
         
     protected $fillable = [
-        'nombre', 'email','password','edad', 'genero', 'objetivo', 'peso', 'altura', 
-        'experiencia', 'informacion_completa'
+        'nombre', 'email','password','google_id','edad', 'genero', 'objetivo', 'peso', 'altura', 
+        'experiencia', 'informacion_completa','email_verified_at'
     ];
     protected $hidden = [
         'password',       
