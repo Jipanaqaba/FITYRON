@@ -13,7 +13,6 @@
 <body>
     <div class="container">
         <h1>FITYRON</h1>
-        <h2>La mejor app del mundo</h2>
         
         <div style="margin-top: 50px;">
             <a href="{{ route('encuesta') }}" class="btn btn-primary">Comenzar</a>
