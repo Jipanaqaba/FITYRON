@@ -15,19 +15,22 @@ class Ejercicio extends Model
     
     protected $fillable = [
         'nombre', 'descripcion', 'dificultad', 'gifUrl', 'imgUrl', 'videoUrl',
-        'parte_cuerpo_id', 'musculo_objetivo_id', 'equipo_id'
+        'parte_cuerpo_id', 'musculo_objetivo_id', 'equipo_id','secondary_muscles', 'instructions', 'objetivo'
     ];
-
+    protected $casts = [
+        'secondary_muscles' => 'array',
+        'instructions' => 'array',
+    ];
     public function parteCuerpo() {
-        return $this->belongsTo(ParteCuerpo::class);
+        return $this->belongsTo(ParteCuerpo::class,'parte_cuerpo_id');
     }
 
     public function musculoObjetivo() {
-        return $this->belongsTo(MusculoObjetivo::class);
+        return $this->belongsTo(MusculoObjetivo::class,'musculo_objetivo_id');
     }
 
     public function equipamiento() {
-        return $this->belongsTo(Equipamiento::class);
+        return $this->belongsTo(Equipamiento::class,'equipo_id');
     }
     public function rutinas() {
         return $this->belongsToMany(RutinaEjercicio::class, 'rutina_series_reps')

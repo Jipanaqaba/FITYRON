@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+public function up(): void
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
@@ -24,11 +24,17 @@ return new class extends Migration
             $table->decimal('peso', 5, 2)->nullable();
             $table->decimal('altura', 5, 2)->nullable();
             $table->enum('experiencia', ['principiante', 'intermedio', 'avanzado'])->nullable();
+            $table->json('dias_entrenamiento')->nullable();
+            $table->text('lesiones')->nullable();
+            $table->enum('duracion_entrenamiento', ['30', '45', '60'])->nullable();
+            $table->enum('tiempo_entrenamiento', ['1', '3', '6','12'])->nullable();
+            $table->enum('lugar_entrenamiento', ['casa', 'gimnasio'])->nullable();
             $table->boolean('informacion_completa')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
     }
+   
 
     /**
      * Reverse the migrations.

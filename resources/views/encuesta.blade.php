@@ -58,6 +58,40 @@
             <option value="intermedio">Intermedio</option>
             <option value="avanzado">Avanzado</option>
         </select>
+<label for="lugar_entrenamiento">¿Dónde entrenarás?</label>
+<select name="lugar_entrenamiento" id="lugar_entrenamiento" required>
+    <option value="gimnasio">Gimnasio</option>
+    <option value="casa">Casa</option>
+    <option value="aire_libre">Aire libre</option>
+</select>
+
+<label>¿Qué días puedes entrenar? (Selecciona todos los que apliquen)</label>
+<div class="checkbox-group">
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="lunes"> Lunes</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="martes"> Martes</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="miercoles"> Miércoles</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="jueves"> Jueves</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="viernes"> Viernes</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="sabado"> Sábado</label>
+    <label><input type="checkbox" name="dias_entrenamiento[]" value="domingo"> Domingo</label>
+</div>
+        <label for="lesiones">¿Tienes alguna lesión?</label>
+        <textarea name="lesiones" id="lesiones" rows="3" placeholder="Describe tus lesiones si tienes alguna..."></textarea>
+
+        <label for="duracion_entrenamiento">Duración del entrenamiento (minutos)</label>
+        <select name="duracion_entrenamiento" id="duracion_entrenamiento" required>
+            <option value="30">30</option>
+            <option value="45">45</option>
+            <option value="60">60</option>
+        </select>
+
+        <label for="tiempo_entrenamiento">¿Cuánto tiempo quieres entrenar (en meses)?</label>
+        <select name="tiempo_entrenamiento" id="tiempo_entrenamiento" required>
+            <option value="1">1 mes</option>
+            <option value="3">3 meses</option>
+            <option value="6">6 meses</option>
+            <option value="12">12 meses</option>
+        </select>
 
         <button type="submit">Guardar Encuesta</button>
     </form>

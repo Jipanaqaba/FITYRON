@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('respuesta_ia');
             $table->json('metadata')->nullable();
             $table->foreignId('usuario_id')->constrained('usuarios');
-            $table->timestamp('fecha_interaccion');
+            $table->timestamps();
         });
     }
 

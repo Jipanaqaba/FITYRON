@@ -13,12 +13,12 @@ class RutinaEjercicio extends Model
     protected $fillable = ['nombre', 'usuario_id'];
 
     public function usuario() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'usuario_id');
     }
 
     public function ejercicios() {
         return $this->belongsToMany(Ejercicio::class, 'rutina_series_reps')
         ->using(RutinaSeriesReps::class)
-        ->withPivot('series', 'repeticiones');
+        ->withPivot('series', 'repeticiones','dia');
     }
 }

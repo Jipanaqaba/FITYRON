@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('modelo_path');
             $table->foreignId('partes_cuerpo_id')->constrained('partes_cuerpo');
             $table->foreignId('ejercicios_id')->constrained('ejercicios');
+             $table->timestamps();
         });
     }
   

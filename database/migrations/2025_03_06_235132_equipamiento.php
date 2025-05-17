@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_api')->unique();
             $table->string('nombre_mostrar');
+             $table->timestamps();
         });
     }
 

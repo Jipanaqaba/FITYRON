@@ -40,6 +40,12 @@ return [
     'client_secret' => env('GOOGLE_CLIENT_SECRET'),
     'redirect' => env('GOOGLE_REDIRECT_URI'),
 ],
+    'openai' => [
+    'key' => env('OPENAI_API_KEY'),
+    'model' => 'gpt-3.5-turbo', 
+    'max_tokens' => 150,
+    'timeout' => 25
+]
 
 
 ];

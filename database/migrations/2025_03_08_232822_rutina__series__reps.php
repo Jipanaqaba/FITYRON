@@ -9,16 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+public function up(): void
     {
         Schema::create('rutina_series_reps',function(Blueprint $table){
             $table->id();
-            $table->integer('series');
-            $table->integer('repeticiones');
-            $table->foreignId('rutina_ejercicio_id')->constrained('rutina_ejercicios');
-            $table->foreignId('ejercicio_id')->constrained('ejercicios');
+            $table->integer('series')->nullable(false);
+            $table->integer('repeticiones')->nullable(false);
+             $table->enum('dia', ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']);
+            $table->foreignId('rutina_ejercicio_id')->constrained('rutina_ejercicios')->onDelete('cascade');
+            $table->foreignId('ejercicio_id')->constrained('ejercicios')->onDelete('cascade');
+            $table->timestamps();
         });
-    }
+    }  
 
     /**
      * Reverse the migrations.

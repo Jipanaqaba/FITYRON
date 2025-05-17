@@ -1,0 +1,66 @@
+.gradient-card {
+    background: linear-gradient(135deg, #625EEB, #A18CD1);
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+    height: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* asegura mismo alto mínimo */
+}
+
+.gradient-card:hover {
+    transform: translateY(-5px);
+}
+
+.ejercicios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.ejercicio-item {
+    flex: 1 1 calc(25% - 24px);
+    min-width: 220px;
+    max-width: 300px;
+    display: flex;
+}
+
+.ejercicio-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.ejercicio-nombre {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white; /* Forzar blanco */
+}
+
+.ejercicio-info {
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    background-color: #22c55e;
+
+}
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+

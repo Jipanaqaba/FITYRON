@@ -1,0 +1,121 @@
+.etiqueta-musculo {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c3e50;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 2px solid #3498db;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translate(-50%, -100%);
+    z-index: 100;
+}
+
+.etiqueta-musculo:hover {
+    background: #3498db;
+    color: white;
+    transform: translate(-50%, -100%) scale(1.05);
+}
+
+.ejercicio-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ejercicio-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.equipo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.equipo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}.etiqueta-cuerpo {
+    position: absolute;
+    background: rgba(0, 123, 255, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.2s;
+    pointer-events: auto;
+}
+
+.etiqueta-cuerpo:hover {
+     transform: scale(1.1) translate(-50%, -50%);
+    z-index: 1000;
+    cursor: pointer;
+    background: #0056b3;
+}
+
+.ejercicio-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ejercicio-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+/* Etiquetas */
+.etiqueta-cuerpo {
+    position: absolute;
+    background: #2196F3;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+}
+
+/* Tarjetas de ejercicios */
+.ejercicio-card {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.ejercicio-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.ejercicio-card h5 {
+    margin: 12px 15px;
+    color: #333;
+}
+
+/* Mensajes de error */
+.error {
+    color: #dc3545;
+    padding: 15px;
+    background: #ffeef0;
+    border-radius: 8px;
+}
