@@ -23,7 +23,7 @@ class ChatbotController extends Controller
 
     public function enviarMensaje(Request $request)
     {
-        $request->validate(['mensaje' => 'required|string|max:500']);
+        $request->validate(['mensaje' => 'required|string|max:800']);
         
         $usuario = Auth::user();
         $mensaje = $request->input('mensaje');
@@ -76,11 +76,11 @@ private function obtenerRespuesta(string $mensaje): string
                 'messages' => [
                     [
                         'role' => 'system',
-                        'content' => "Eres Fityron, experto en fitness. Responde máximo en 100 palabras. Idioma: español."
+                        'content' => "Eres Fityron, experto en fitness. Responde máximo en 1000 palabras. Idioma: español."
                     ],
                     ['role' => 'user', 'content' => $mensaje]
                 ],
-                'max_tokens' => 120,
+                'max_tokens' => 500,
                 'temperature' => 0.4
             ]);
  // Verifica si la respuesta tiene la estructura esperada

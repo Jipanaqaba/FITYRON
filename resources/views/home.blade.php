@@ -23,7 +23,6 @@
                  $dias = 'No especificado';
                  if (is_array($dias_entrenamiento)) {
                      // Mapa de días a sus iniciales
-                     // En home.blade.php
                      $mapa_dias = [
                          'lunes' => 'L',
                          'martes' => 'M',
@@ -74,7 +73,6 @@
                 $diaActual = now()->locale('es')->isoFormat('dddd');
             @endphp
 @php
-    // Declarar la función UNA sola vez al principio
     if (!function_exists('normalizarDia')) {
         function normalizarDia($dia) {
             $dia = str_replace(

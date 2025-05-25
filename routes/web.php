@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Modelo3DController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\RutinaController;
+use App\Http\Controllers\SeguimientoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -80,3 +81,10 @@ Route::post('/rutina/finalizar', [RutinaController::class, 'finalizar'])
 //chatbot
   Route::post('/chatbot/enviar', [ChatbotController::class, 'enviarMensaje'])->name('chatbot.enviar');
     Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot');
+
+    //seguimiento
+        
+ Route::get('/seguimiento', [SeguimientoController::class, 'index'])->name('seguimiento');
+    Route::post('/seguimiento', [SeguimientoController::class, 'registrar'])->name('seguimiento.registrar');
+    
+    

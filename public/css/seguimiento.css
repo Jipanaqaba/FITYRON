@@ -1,0 +1,174 @@
+:root {
+    --color-primario: #625EEB;
+    --color-secundario: #22c55e;
+    --gradiente-primario: linear-gradient(135deg, #625EEB, #A18CD1);
+    --gradiente-secundario: linear-gradient(135deg, #22c55e, #16a34a);
+    --sombra: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor principal */
+.seguimiento-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Título con estilo moderno */
+.seguimiento-title {
+    color: white;    
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--color-secundario);
+    padding-bottom: 1rem;
+}
+
+/* Tabla de seguimiento */
+.seguimiento-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.seguimiento-table th {
+    background: var(--gradiente-primario);
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+}
+
+.seguimiento-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+/* Items de medidas */
+.medidas-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.medidas-item {
+    background: var(--gradiente-secundario);
+    color: white;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Alerta */
+.alert-seguimiento {
+    background: var(--color-primario);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Formulario */
+.form-seguimiento {
+    background-color: #1f2937;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    margin-top: 2rem;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+/* Botón */
+.btn-submit {
+    background: var(--gradiente-secundario);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--sombra);
+    display: inline-block;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+}
+
+/* Gráfico */
+/* Añade estos estilos al CSS */
+.chart-container {
+    height: 500px;  /* Altura aumentada */
+    width: 100%;
+    margin: 2rem auto;
+    position: relative;
+     background: white;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+}
+
+#pesoChart {
+    width: 100%!important;
+    height: 100%!important;
+    min-height: 400px;  /* Altura mínima garantizada */
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .seguimiento-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .form-seguimiento {
+        padding: 1rem;
+    }
+
+    .seguimiento-title {
+        font-size: 2rem;
+    }
+}

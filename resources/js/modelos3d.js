@@ -86,7 +86,7 @@ const partesCuerpo = [
     
     return `
         <div class="ejercicio-card">
-            <img src="${ej.gif}" alt="${ej.nombre}" loading="lazy">
+            <img src="${ej.gifUrl}" alt="${ej.nombre}">
             <h5>${ej.nombre}</h5>
             <ul class="instructions">
                 ${instructions.map(inst => `<li>${inst}</li>`).join('')}

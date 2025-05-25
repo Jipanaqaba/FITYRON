@@ -79,11 +79,14 @@ async function enviarMensaje() {
         const data = await response.json();
         
         // Reemplazar loader
-        document.getElementById(loaderId).outerHTML = `
-            <div class="mensaje-ia">
-                <div class="burbuja-ia">${data.respuesta}</div>
-            </div>
-        `;
+      const respuestaFormateada = data.respuesta.replace(/\n/g, '<br>');
+
+document.getElementById(loaderId).outerHTML = `
+    <div class="mensaje-ia">
+        <div class="burbuja-ia">${respuestaFormateada}</div>
+    </div>
+`;
+
 
     } catch (error) {
         document.getElementById(loaderId).outerHTML = `

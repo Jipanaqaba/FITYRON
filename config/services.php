@@ -43,7 +43,7 @@ return [
     'openai' => [
     'key' => env('OPENAI_API_KEY'),
     'model' => 'gpt-3.5-turbo', 
-    'max_tokens' => 150,
+    'max_tokens' => 300,
     'timeout' => 25
 ]
 

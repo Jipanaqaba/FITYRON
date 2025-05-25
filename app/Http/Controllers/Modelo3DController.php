@@ -27,7 +27,7 @@ public function getEjercicios($parteCuerpo)
             ->map(function ($ejercicio) {
                 return [
                     'nombre' => $ejercicio->nombre,
-                    'gif' => asset(Storage::url($ejercicio->gifUrl)),
+                    'gifUrl' => $ejercicio->gifUrl,
                     'instructions' => $ejercicio->instructions
                 ];
             });
@@ -52,7 +52,7 @@ public function getEjerciciosPorMusculo($musculoApi)
                 'nombre' => $ejercicio->nombre,
                 'descripcion' => $ejercicio->descripcion,
                 'dificultad' => $ejercicio->dificultad,
-                'gifUrl' =>asset(Storage::url($ejercicio->gifUrl)),
+                'gifUrl' =>asset($ejercicio->gifUrl),
                 'equipoImg' => asset("storage/{$ejercicio->equipo->icono_url}"),
                 'equipoNombre' => $ejercicio->equipo->nombre_mostrar
             ];

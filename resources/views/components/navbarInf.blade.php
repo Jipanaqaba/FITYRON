@@ -11,7 +11,7 @@
     <a href="{{ route('chatbot') }}" class="nav-icon {{ request()->routeIs('chatbot') ? 'active' : '' }}">
         <i class="fas fa-robot"></i>
     </a>
-    <a href="{{ route('home') }}" class="nav-icon {{ request()->routeIs('perfil') ? 'active' : '' }}">
+    <a href="{{ route('seguimiento') }}" class="nav-icon {{ request()->routeIs('seguimiento') ? 'active' : '' }}">
         <i class="fas fa-user"></i>
     </a>
 </nav>
