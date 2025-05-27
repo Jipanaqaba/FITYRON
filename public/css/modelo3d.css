@@ -140,3 +140,56 @@
     font-size: 12px;
     line-height: 20px;
 }
+
+@media (max-width: 768px) {
+    .modelo-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .etiqueta-musculo,
+    .etiqueta-cuerpo {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 15px;
+        max-width: 90vw;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .equipo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .equipo img {
+        width: 24px;
+        height: 24px;
+    }
+
+    #panel-ejercicios {
+        height: auto;
+        max-height: 400px;
+    }
+
+    .image-container {
+        height: 140px;
+    }
+
+    .ejercicio-card h5 {
+        font-size: 14px;
+    }
+
+    .instructions {
+        padding-left: 10px;
+        font-size: 14px;
+    }
+
+    .instructions li:before {
+        left: -20px;
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        line-height: 18px;
+    }
+}

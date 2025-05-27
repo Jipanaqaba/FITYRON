@@ -159,16 +159,48 @@
 }
 /* Responsive */
 @media (max-width: 768px) {
-    .seguimiento-table {
-        display: block;
-        overflow-x: auto;
-    }
-
-    .form-seguimiento {
+    .seguimiento-container {
         padding: 1rem;
     }
 
     .seguimiento-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .medidas-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .medidas-item {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+
+    .alert-seguimiento {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-input {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .btn-submit {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    #pesoChart {
+        min-height: 250px;
     }
 }

@@ -170,4 +170,74 @@ h3 {
     margin-bottom: 10px;
     font-family: 'Insanibu', sans-serif !important;
 }
- 
+ @media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome-message h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .welcome-message p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .user-info {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .user-info ul {
+        columns: 1; /* solo una columna en móvil */
+        column-gap: 0;
+    }
+
+    .content-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .workout-cards, .weekly-stats {
+        width: 100%;
+        max-width: none;
+        padding: 10px;
+    }
+
+    .routine-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .routine-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .start-workout-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    canvas#statsChart {
+        max-width: 100%;
+    }
+
+    .bottom-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .weekly-stats {
+        
+    top: -40px; 
+    position: relative;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    align-self: flex-start; /* para que funcione con flexbox */    
+    z-index: 10; /* opcional: para que no quede tapado */
+}
+
+}
